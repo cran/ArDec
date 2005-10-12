@@ -10,9 +10,10 @@ function (x, R)
     set.seed(1)
     while (i <= R) {
         phi = as.vector(ardec.sampling(x, fit)$ARcoef)
-        comp = ardec(x, fit$coefficients)
-        stopifnot(any(comp$period == Inf))
-        warning("no trend component")
+        comp = ardec(x, phi)
+        if (any(comp$period == Inf)) {
+            warning("no trend component")
+        }
         if (any(comp$period == Inf)) {
             l[i] = comp$period[which(match(comp$period, Inf) == 
                 1)[1]]

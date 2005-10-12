@@ -12,15 +12,15 @@ function (x, R)
     set.seed(1)
     while (i <= R) {
         phi = as.vector(ardec.sampling(x, fit)$ARcoef)
-        comp = ardec(x, fit$coefficients)
-        if (any(comp$period > 10 & comp$period < 14)) {
-            l[i] = comp$period[which(comp$period > 10 & comp$period < 
-                14)]
-            m[i] = comp$modulus[which(comp$period > 10 & comp$period < 
-                14)]
-            gt[i, ] = Re(comp$comps[which(comp$period > 10 & 
-                comp$period < 14), ] + comp$comps[which(comp$period > 
-                10 & comp$period < 14) + 1, ])
+        comp = ardec(x, phi)
+        if (any(comp$period > 11 & comp$period < 13)) {
+            candidates = which(comp$period > 11 & comp$period < 
+                13)
+            l[i] = comp$period[candidates][which.max(candidates)]
+            m[i] = max(comp$modulus[candidates])
+            gt[i, ] = Re(comp$comps[candidates[which.max(candidates)], 
+                ] + comp$comps[candidates[which.max(candidates)] + 
+                1, ])
             i = i + 1
         }
     }
