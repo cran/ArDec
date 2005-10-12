@@ -13,14 +13,14 @@ function (x, R)
     while (i <= R) {
         phi = as.vector(ardec.sampling(x, fit)$ARcoef)
         comp = ardec(x, fit$coefficients)
-        if (comp$period > 10 && comp$period < 14) {
-            l[i] = comp$period[which(comp$period > 10 && comp$period < 
+        if (any(comp$period > 10 & comp$period < 14)) {
+            l[i] = comp$period[which(comp$period > 10 & comp$period < 
                 14)]
-            m[i] = comp$modulus[which(comp$period > 10 && comp$period < 
+            m[i] = comp$modulus[which(comp$period > 10 & comp$period < 
                 14)]
-            gt[i, ] = Re(comp$comps[which(comp$period > 10 && 
+            gt[i, ] = Re(comp$comps[which(comp$period > 10 & 
                 comp$period < 14), ] + comp$comps[which(comp$period > 
-                10 && comp$period < 14) + 1, ])
+                10 & comp$period < 14) + 1, ])
             i = i + 1
         }
     }

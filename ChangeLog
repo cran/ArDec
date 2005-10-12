@@ -1,8 +1,12 @@
 
+Wed Oct 12 2005
+        * Logical && changed to & in functions ardec.annual and ardec.annual.bayes
+        * comp$period > 10 && comp$period < 14 changes to any(comp$period > 10 & comp$period < 14) in functions ardec.annual and ardec.annual.bayes
+
 
 Tue Oct 11 2005
-        * Added function ardec.lm.bayes
-        * Added \alias items
+        * Added missing code - function ardec.lm.bayes
+        * Added documentation pages for alias
 
 Tue Oct 11 2005
 	* ArDec 1.0 is released
