@@ -1,6 +1,24 @@
 `ardec` <-
 function(x,coef, ...) {
- 
+
+
+setClass("ardec",representation(start="numeric",frequency="numeric",period="numeric",modulus="numeric",comps="matrix"),package="ArDec")
+
+setMethod("show", "ardec",
+function(object) {
+
+out=cbind(unique(abs(object@period[which(object@modulus>=0.95)])),  unique(object@modulus[which(object@modulus>=0.95)]))
+
+if(any(object@period==Inf)){out=rbind(out,c("trend",object@modulus [which(object@period==Inf)[1]]))}
+if(all(object@period!=Inf)){out=rbind(out,c("no trend",""))}
+
+dimnames(out)=list(c(1:(ncol(out)+1)),c("period","damping"))
+
+show(out)
+
+}
+)
+
  dat=x-mean(x)
  p=length(coef)
  ndat=length(x)
@@ -35,7 +53,7 @@ function(x,coef, ...) {
  for (t in seq(1,ndat)){
  g[j,t]=H[j, ] %*% Z[,t] }}
  
- 
-  return(list(period=lambda,modulus=modulus,comps=g))
+ new("ardec",start=start(x),frequency=frequency(x),period=lambda, modulus=modulus,comps=g)
+ #return(list(period=lambda,modulus=modulus,comps=g))
  }
 
