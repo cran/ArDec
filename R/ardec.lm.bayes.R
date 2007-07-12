@@ -20,8 +20,8 @@ while(i<=R){
 
 beta=apply(phi,1,median)
 
-if(med==TRUE){return(list(BayesCoef=beta))}
+if(med==TRUE){return(list(coefficients=beta))}
 
-return(list(BayesCoef=phi)) 
+return(list(coefficients=phi)) 
 }
 
