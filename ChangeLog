@@ -1,0 +1,42 @@
+
+
+Thu Nov 22 2007
+        *fix bug in method for class ardec
+
+Fri Jul 13 2007
+        * BayesCoef changed to coefficients in function ardec.lm.bayes
+
+Thu Jul 12 2007
+        * functions ardec.periodic, ardec.periodic.bayes,ardec.trend,ardec.trend.bayes discarded
+        * added class "ardec"
+        * added function ardec.components
+
+Thu Oct 20 2005
+        * functions ardec.annual, ardec.annual.bayes replaced by functions ardec.periodic,ardec.periodic.bayes
+
+Thu Oct 13 2005 
+        * variable candidates added to function ardec.annual and ardec.annual.bayes
+
+        * l=comp$period[which(comp$period > 11 & comp$period < 13)] in function ardec.annual and ardec.annual.bayes changed to l=comp$period[candidates][which.max(candidates)]
+
+        * m=comp$modulus[which(comp$period > 11 & comp$period < 13)] in function ardec.annual and ardec.annual.bayes changed to m=max(comp$modulus[candidates])
+
+        * gt=Re(comp$comps[which(comp$period > 11 & comp$period < 13),]+comp$comps[which(comp$period > 11 & comp$period < 13)+1,]) in function ardec.annual and ardec.annual.bayes changed to gt=Re(comp$comps[candidates[which.max(candidates)],]+comp$comps[candidates[which.max(candidates)]+1,]) 
+
+        * comp=ardec(x,fit$coefficients) changed to comp=ardec(x,phi) in functions ardec.annual.bayes and ardec.trend.bayes
+
+        * stopifnot(any(comp$period == Inf)) changed to if(any(comp$period==Inf)){warning("no trend component")} in functions ardec.trend and ardec.trend.bayes
+
+        * tolerance for annual frequency changed to [11,13] in functions ardec.trend and ardec.trend.bayes
+
+Wed Oct 12 2005
+        * Logical && changed to & in functions ardec.annual and ardec.annual.bayes
+        * comp$period > 10 && comp$period < 14 changed to any(comp$period > 10 & comp$period < 14) in functions ardec.annual and ardec.annual.bayes
+
+
+Tue Oct 11 2005
+        * Added missing code - function ardec.lm.bayes
+        * Added documentation pages for alias
+
+Tue Oct 11 2005
+	* ArDec 1.0 is released
