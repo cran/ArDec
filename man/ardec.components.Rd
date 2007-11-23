@@ -17,13 +17,18 @@ ardec.components(object, ...)
  A list with components
   \item{periodcomps }{periodic autoregressive components}
   \item{trendcomp}{trend component}
-  ...
 }
-\references{ ~put references to the literature/web site here ~ }
+%\references{ ~put references to the literature/web site here ~ }
 \author{ S. M. Barbosa }
 
 %\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
-%\examples{}
+\examples{
+data(tempEng)
+dec=ardec(tempEng,ardec.lm(tempEng)$coefficients)
+comps=ardec.components(dec)
+plot(comps$trendcomp)
+plot(comps$periodcomps)
+}
 
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

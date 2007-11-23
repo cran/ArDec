@@ -14,8 +14,7 @@ function (x, coef, ...)
         if (all(object@period != Inf)) {
             out = rbind(out, c("no trend", ""))
         }
-        dimnames(out) = list(c(1:(ncol(out) + 1)), c("period", 
-            "damping"))
+        dimnames(out) = list(c(1:(nrow(out))), c("period", "damping"))
         show(out)
     })
     dat = x - mean(x)

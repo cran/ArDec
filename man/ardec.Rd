@@ -41,9 +41,6 @@ West, M. and Harrisson, P.J. (1997), Bayesian Forecasting and Dynamic Models, Sp
 
 data(tempEng)
 coef=ardec.lm(tempEng)$coefficients
-
-# warning: running the next command can be time comsuming!
-
 decomposition=ardec(tempEng,coef)
 
  }
