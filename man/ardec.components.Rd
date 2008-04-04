@@ -27,7 +27,7 @@ data(tempEng)
 dec=ardec(tempEng,ardec.lm(tempEng)$coefficients)
 comps=ardec.components(dec)
 plot(comps$trendcomp)
-plot(comps$periodcomps)
+plot(comps$periodcomps$comps)
 }
 
 
