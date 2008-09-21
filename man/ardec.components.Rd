@@ -1,33 +1,35 @@
 \name{ardec.components}
 \alias{ardec.components}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Autoregressive components }
+\title{Function to extract autoregressive components }
 \description{
   Extraction of autoregressive components from object of class "ardec"
 }
 \usage{
-ardec.components(object, ...)
+ardec.components(object, th = 0.95, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{object of class "ardec" }
+  \item{th}{value of damping threshold}
   \item{\dots}{ additional arguments for specific methods }
 }
 \value{
  A list with components
-  \item{periodcomps }{periodic autoregressive components}
+  \item{periodcomps }{periodic components}
   \item{trendcomp}{trend component}
 }
-%\references{ ~put references to the literature/web site here ~ }
+%\references{}
+
 \author{ S. M. Barbosa }
 
 %\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
 \examples{
 data(tempEng)
-dec=ardec(tempEng,ardec.lm(tempEng)$coefficients)
-comps=ardec.components(dec)
-plot(comps$trendcomp)
-plot(comps$periodcomps$comps)
+decomposition=ardec(tempEng,ardec.lm(tempEng)$coefficients)
+components=ardec.components(decomposition)
+plot(components$trendcomp)
+plot(components$periodcomps$comps)
 }
 
 
