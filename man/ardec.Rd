@@ -45,11 +45,10 @@ Barbosa, SM, Silva, ME, Fernandes, MJ (2008), Changing seasonality in North Atla
 
 
 \examples{
-
 data(tempEng)
 coef=ardec.lm(tempEng)$coefficients
 decomposition=ardec(tempEng,coef)
+}
 
- }
-
-\keyword{ts}% at least one, from doc/KEYWORDS
+% at least one, from doc/KEYWORDS
+\keyword{ts}
