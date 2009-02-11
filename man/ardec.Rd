@@ -51,5 +51,5 @@ coef=ardec.lm(tempEng)$coefficients
 decomposition=ardec(tempEng,coef)
 
  }
-}
+
 \keyword{ts}% at least one, from doc/KEYWORDS
