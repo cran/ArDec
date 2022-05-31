@@ -1,8 +1,6 @@
 ardec.lm <-
 function(x) {
 
-require(stats)
-
  dat=x-mean(x)
  ndat=length(dat)
  
